@@ -10,6 +10,7 @@ import frc.robot.commands.DriveArcadeCMD;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.DrivetrainSubsystem;
 import frc.robot.subsystems.ExampleSubsystem;
+import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
@@ -32,13 +33,13 @@ public class RobotContainer {
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the trigger 
-    double speedFactor = 0.3;
-    double rotFactor = 0.4;
+    double speedFactor = 1;
+    double rotFactor = 1;
+    double deadband = 0.1;
     drivetrainSubsystem.setDefaultCommand(new DriveArcadeCMD(
       drivetrainSubsystem,
-      () -> -m_driverController.getLeftY() * speedFactor,
-      () -> -m_driverController.getRightX() * rotFactor));
-
+      () -> MathUtil.applyDeadband(-m_driverController.getLeftY(), deadband) * speedFactor,
+      () -> MathUtil.applyDeadband(-m_driverController.getRightX(), deadband) * rotFactor));
 
     configureBindings();
   }
