@@ -33,8 +33,8 @@ public class RobotContainer {
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the trigger 
-    double speedFactor = 0.4;
-    double rotFactor = 0.4;
+    double speedFactor = 0.5;
+    double rotFactor = 0.5;
     double deadband = 0.05;
     drivetrainSubsystem.setDefaultCommand(new DriveArcadeCMD(
       drivetrainSubsystem,
