@@ -32,12 +32,12 @@ public class RobotContainer {
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the trigger 
-    double speedFactor = 0.2;
-    double rotFactor = 0.2;
+    double speedFactor = 0.3;
+    double rotFactor = 0.4;
     drivetrainSubsystem.setDefaultCommand(new DriveArcadeCMD(
       drivetrainSubsystem,
-      () -> m_driverController.getLeftY() * speedFactor,
-      () -> m_driverController.getRightX() * rotFactor));
+      () -> -m_driverController.getLeftY() * speedFactor,
+      () -> -m_driverController.getRightX() * rotFactor));
 
 
     configureBindings();

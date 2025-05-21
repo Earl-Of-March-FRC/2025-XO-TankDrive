@@ -15,10 +15,10 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class DrivetrainSubsystem extends SubsystemBase {
   private final DifferentialDrive drive;
-  TalonFX leftBackMotor = new TalonFX(1);
-  TalonFX leftFrontMotor = new TalonFX(2);
-  TalonFX rightBackMotor = new TalonFX(3);
-  TalonFX rightFrontMotor = new TalonFX(4);
+  TalonFX leftBackMotor = new TalonFX(4);
+  TalonFX leftFrontMotor = new TalonFX(3);
+  TalonFX rightBackMotor = new TalonFX(2);
+  TalonFX rightFrontMotor = new TalonFX(1);
 
   /** Creates a new DrivetrainSubsystem. */
   public DrivetrainSubsystem() {
