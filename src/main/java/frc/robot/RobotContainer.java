@@ -39,8 +39,11 @@ public class RobotContainer {
     drivetrainSubsystem.setDefaultCommand(new DriveArcadeCMD(
       drivetrainSubsystem,
       () -> MathUtil.applyDeadband(-m_driverController.getLeftY(), deadband) * speedFactor,
-      () -> MathUtil.applyDeadband(-m_driverController.getRightX(), deadband) * rotFactor));
-
+      () -> MathUtil.applyDeadband(-m_driverController.getRightX(), deadband) * rotFactor * 
+        (MathUtil.applyDeadband(-m_driverController.getLeftY(), deadband) == 0 ? 
+          1 : 
+          Math.signum(MathUtil.applyDeadband(-m_driverController.getLeftY(), deadband)))));
+    // invert rotation direction if going backwards
     configureBindings();
   }
 
