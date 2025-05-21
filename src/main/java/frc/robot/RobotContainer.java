@@ -33,9 +33,9 @@ public class RobotContainer {
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the trigger 
-    double speedFactor = 1;
-    double rotFactor = 1;
-    double deadband = 0.1;
+    double speedFactor = 0.4;
+    double rotFactor = 0.4;
+    double deadband = 0.05;
     drivetrainSubsystem.setDefaultCommand(new DriveArcadeCMD(
       drivetrainSubsystem,
       () -> MathUtil.applyDeadband(-m_driverController.getLeftY(), deadband) * speedFactor,
